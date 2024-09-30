@@ -1,6 +1,5 @@
 import React from 'react';
 import "./home.css";
-import { motion } from 'framer-motion';
 
 // Importe suas imagens de serviço com o nome correto
 import barbaImg from './Barba.JPG'; // Use a capitalização correta
