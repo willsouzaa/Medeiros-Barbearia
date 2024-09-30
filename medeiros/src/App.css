@@ -1,0 +1,121 @@
+/* App.css */
+html {
+  scroll-behavior: smooth; /* Ativa a rolagem suave */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif; /* Fonte padrão */
+  margin: 0;
+  padding: 0;
+  background: rgb(27, 27, 27);
+}
+
+header {
+  background-image: url('./componentes/imagens/fundo-header.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+header .logo {
+  width: 300px; /* Ajuste o tamanho da logo */
+  height: auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente para a nav */
+  padding: 10px 0; /* Adiciona padding para a nav */
+  border-radius: 5px; /* Bordas arredondadas */
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ff6347; /* Cor de hover para os links */
+}
+
+/* Media Query para telas menores */
+@media (max-width: 768px) {
+  header {
+      height: auto; /* Ajusta a altura do header para se adaptar ao conteúdo */
+      padding: 20px 0; /* Adiciona um pouco de padding */
+  }
+
+  nav {
+      flex-direction: column; /* Muda a direção para coluna em telas pequenas */
+      align-items: center; /* Centraliza os links no modo coluna */
+      margin-top: 10px; /* Reduz o espaço acima da navegação */
+  }
+
+  nav a {
+      margin: 10px 0; /* Espaçamento entre os links */
+      font-size: 14px; /* Reduz o tamanho da fonte em telas menores */
+  }
+}
+
+/* Seções com degradê */
+section {
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Cores diferentes para cada seção com degradê escuro a dourado */
+#home {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(43, 36, 1, 0.95)); /* Degradê do home */
+}
+
+#equipe {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(43, 36, 1, 0.95)); /* Degradê da equipe */
+}
+
+#depoimentos {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(43, 36, 1, 0.95)); /* Degradê dos depoimentos */
+}
+
+#servicos {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(43, 36, 1, 0.95)); /* Degradê dos serviços */
+}
+
+#contatos {
+  background: linear-gradient(135deg,rgba(0, 0, 0, 0.95), rgba(43, 36, 1, 0.95)); /* Degradê dos contatos */
+}
+
+h1, h2, h3 {
+  color: #f4f4f4; /* Melhorar a legibilidade contra o fundo escuro */
+}
+
+.contatos {
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo escuro e sutil para contatos */
+  padding: 20px;
+  text-align: center;
+}
+
+.info-contato {
+  margin-bottom: 20px;
+}
+
+.redes-sociais a {
+  margin: 0 10px;
+  color: #fff; /* Cor mais clara para os links das redes sociais */
+  text-decoration: none;
+}
+
+.redes-sociais a:hover {
+  color: #ff6347; /* Cor ao passar o mouse */
+}

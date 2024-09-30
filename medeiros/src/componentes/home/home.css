@@ -1,0 +1,80 @@
+/* colors.css */
+
+/* Classe de fundo */
+.bg-color3 {
+    background-color: #2b2d2e;
+  }
+  
+  .bg-color2 {
+    background-color: #f1de7e;
+  }
+  
+  /* Exemplo da classe home */
+
+  .home, h2 {
+    padding: 20px;
+    text-align: center;
+    color: #f1de7e; /* Cor do texto */
+    font-family: Arial, sans-serif;
+    
+  }
+  
+  /* Container de serviços com limite de largura */
+  .servicos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    gap: 15px; /* Espaçamento entre os serviços */
+    max-width: 1200px; /* Limita a largura total */
+    margin: 0 auto; /* Centraliza o container */
+  }
+  
+  /* Estilizando cada serviço */
+  .servico {
+    flex: 1 1 calc(25% - 30px); /* Cada item ocupa 25% da linha, com margem ajustada */
+    max-width: 280px; /* Limita a largura máxima */
+    text-align: center;
+    margin: 15px;
+    padding: 10px;
+    background-color: #615620; /* Exemplo de cor de fundo */
+    border-radius: 8px; /* Bordas arredondadas */
+    transition: transform 0.3s ease;
+  }
+  
+  /* Efeito de hover nos serviços */
+  .servico:hover {
+    transform: scale(1.1); /* Aumenta a imagem em 10% */
+  }
+  
+  /* Estilizando as imagens */
+  .servico img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px; /* Arredondar um pouco as imagens */
+  }
+  
+  /* Títulos dos serviços */
+  .servico h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  /* Descrição dos serviços */
+  .servico p {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  /* Tornar responsivo em telas menores */
+  @media (max-width: 768px) {
+    .servico {
+      flex: 1 1 calc(50% - 20px); /* Cada item ocupa 50% da linha em telas menores */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .servico {
+      flex: 1 1 100%; /* Cada item ocupa 100% da linha em telas muito pequenas */
+    }
+  }
+  

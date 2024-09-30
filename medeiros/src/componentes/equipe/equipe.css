@@ -1,0 +1,65 @@
+/* equipe.css */
+
+.equipe {
+    padding: 20px;
+    text-align: center;
+    color: #ffffff; /* Cor do texto */
+    font-family: Arial, sans-serif;
+  }
+  
+  .barbers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Para responsividade */
+    gap: 20px; /* Espaço entre os barbeiros */
+  }
+  
+  .barber {
+    background-color: #615620; /* Fundo dos cartões */
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .barber:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+  }
+  
+  .barber img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Faz as imagens dos barbeiros ficarem circulares */
+  }
+  
+  .local {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Para responsividade */
+    gap: 10px; /* Espaço entre as fotos */
+    margin-top: 20px;
+  }
+  
+  .local img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordas arredondadas nas fotos do local */
+    transition: transform 0.3s ease;
+  }
+  
+  .local img:hover {
+    transform: scale(1.1); /* Efeito de zoom nas fotos do local */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .barber, .local img {
+      flex: 1 1 calc(50% - 20px); /* Ajuste para telas menores */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .barber, .local img {
+      flex: 1 1 100%; /* Cada item ocupa 100% em telas pequenas */
+    }
+  }
+  
