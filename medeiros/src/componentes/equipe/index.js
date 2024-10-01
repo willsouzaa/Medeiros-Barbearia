@@ -20,14 +20,6 @@ function Equipe() {
           <img src={barbeiro1} alt="Barbeiro 1" />
           <p>Nome do Barbeiro 1</p>
         </div>
-        <div className="barber">
-          <img src={barbeiro2} alt="Barbeiro 2" />
-          <p>Nome do Barbeiro 2</p>
-        </div>
-        <div className="barber">
-          <img src={barbeiro3} alt="Barbeiro 3" />
-          <p>Nome do Barbeiro 3</p>
-        </div>
       </div>
       <h2>Fotos da Barbearia</h2>
       <div className="local">
