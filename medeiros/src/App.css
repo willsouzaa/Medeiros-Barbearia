@@ -134,3 +134,16 @@ h1, h2, h3 {
 .whatsapp-button:hover {
   background-color: #128c7e;
 }
+
+#localizacao iframe {
+  width: 100%;
+  height: auto;
+  min-height: 300px; /* Ajuste o valor de acordo com o que fica melhor em telas pequenas */
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  #localizacao iframe {
+      height: 450px; /* Altura padrão para telas maiores */
+  }
+}
