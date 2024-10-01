@@ -1,80 +1,104 @@
-/* colors.css */
-
-/* Classe de fundo */
-.bg-color3 {
-    background-color: #2b2d2e;
-  }
-  
-  .bg-color2 {
-    background-color: #f1de7e;
-  }
-  
-  /* Exemplo da classe home */
-
-  .home, h2 {
+.home {
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
     padding: 20px;
     text-align: center;
-    color: #f1de7e; /* Cor do texto */
+    color: rgba(234, 198, 87, 1); /* Cor do texto */
     font-family: Arial, sans-serif;
-    
-  }
+    background: linear-gradient(to bottom, #4B3D1D, #000000, #4B3D1D); /* Degradê do dourado escuro para preto e volta para dourado */
+    overflow: hidden; /* Impede que o conteúdo saia da área da seção */
+}
+
+/* Pseudo-elemento para a sobreposição escura */
+.home::before {
+    content: '';
+    position: absolute; /* Posiciona o pseudo-elemento em relação ao pai */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com opacidade de 50% */
+    z-index: 0; /* Coloca a sobreposição atrás do conteúdo */
+}
+
+/* Aumenta o índice z do conteúdo para ficar acima da sobreposição */
+.home > * {
+    position: relative; /* Necessário para que os elementos filhos sejam acima da sobreposição */
+    z-index: 1; /* Coloca o conteúdo acima da sobreposição */
+}
+
+/* Outras classes */
+.bg-color3 {
+    background-color: #2b2d2e;
+}
   
-  /* Container de serviços com limite de largura */
-  .servicos {
+.bg-color2 {
+    background-color: rgba(234,198,87,245);
+}
+
+/* Exemplo da classe home */
+
+.home, h2 {
+    padding: 20px;
+    text-align: center;
+    color: rgba(234,198,87,1); /* Cor do texto */
+    font-family: Arial, sans-serif;
+}
+
+/* Container de serviços com limite de largura */
+.servicos {
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content: space-between;
     gap: 15px; /* Espaçamento entre os serviços */
     max-width: 1200px; /* Limita a largura total */
     margin: 0 auto; /* Centraliza o container */
-  }
-  
-  /* Estilizando cada serviço */
-  .servico {
+}
+
+/* Estilizando cada serviço */
+.servico {
     flex: 1 1 calc(25% - 30px); /* Cada item ocupa 25% da linha, com margem ajustada */
     max-width: 280px; /* Limita a largura máxima */
     text-align: center;
     margin: 15px;
     padding: 10px;
-    background-color: #615620; /* Exemplo de cor de fundo */
+    background-color: rgba(234,198,87,1); /* Exemplo de cor de fundo */
     border-radius: 8px; /* Bordas arredondadas */
     transition: transform 0.3s ease;
-  }
-  
-  /* Efeito de hover nos serviços */
-  .servico:hover {
+}
+
+/* Efeito de hover nos serviços */
+.servico:hover {
     transform: scale(1.1); /* Aumenta a imagem em 10% */
-  }
-  
-  /* Estilizando as imagens */
-  .servico img {
+}
+
+/* Estilizando as imagens */
+.servico img {
     max-width: 100%;
     height: auto;
     border-radius: 6px; /* Arredondar um pouco as imagens */
-  }
-  
-  /* Títulos dos serviços */
-  .servico h3 {
+}
+
+/* Títulos dos serviços */
+.servico h3 {
     font-size: 1.2rem;
     margin: 10px 0;
-  }
-  
-  /* Descrição dos serviços */
-  .servico p {
+}
+
+/* Descrição dos serviços */
+.servico p {
     font-size: 0.9rem;
     color: #333;
-  }
-  
-  /* Tornar responsivo em telas menores */
-  @media (max-width: 768px) {
+}
+
+/* Tornar responsivo em telas menores */
+@media (max-width: 768px) {
     .servico {
-      flex: 1 1 calc(50% - 20px); /* Cada item ocupa 50% da linha em telas menores */
+        flex: 1 1 calc(50% - 20px); /* Cada item ocupa 50% da linha em telas menores */
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .servico {
-      flex: 1 1 100%; /* Cada item ocupa 100% da linha em telas muito pequenas */
+        flex: 1 1 100%; /* Cada item ocupa 100% da linha em telas muito pequenas */
     }
-  }
-  
+}

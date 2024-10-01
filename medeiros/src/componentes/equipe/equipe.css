@@ -1,65 +1,86 @@
 /* equipe.css */
 
 .equipe {
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
     padding: 20px;
     text-align: center;
-    color: #ffffff; /* Cor do texto */
+    color: rgba(234, 198, 87, 1); /* Cor do texto */
     font-family: Arial, sans-serif;
-  }
-  
-  .barbers {
+    background: linear-gradient(to bottom, #4B3D1D, #000000, #4B3D1D); /* Degradê do dourado escuro para preto e volta para dourado */
+    overflow: hidden; /* Impede que o conteúdo saia da área da seção */
+}
+
+/* Pseudo-elemento para a sobreposição escura */
+.equipe::before {
+    content: '';
+    position: absolute; /* Posiciona o pseudo-elemento em relação ao pai */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com opacidade de 50% */
+    z-index: 0; /* Coloca a sobreposição atrás do conteúdo */
+}
+
+/* Aumenta o índice z do conteúdo para ficar acima da sobreposição */
+.equipe > * {
+    position: relative; /* Necessário para que os elementos filhos sejam acima da sobreposição */
+    z-index: 1; /* Coloca o conteúdo acima da sobreposição */
+}
+
+/* Outras classes */
+.barbers {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; /* Para responsividade */
     gap: 20px; /* Espaço entre os barbeiros */
-  }
-  
-  .barber {
-    background-color: #615620; /* Fundo dos cartões */
+}
+
+.barber {
+    background-color: rgba(234, 198, 87, 0.8); /* Fundo dos cartões */
     border-radius: 8px;
     padding: 10px;
     transition: transform 0.3s ease;
-  }
-  
-  .barber:hover {
+}
+
+.barber:hover {
     transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
-  }
-  
-  .barber img {
+}
+
+.barber img {
     max-width: 100%;
     height: auto;
     border-radius: 50%; /* Faz as imagens dos barbeiros ficarem circulares */
-  }
-  
-  .local {
+}
+
+.local {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; /* Para responsividade */
     gap: 10px; /* Espaço entre as fotos */
     margin-top: 20px;
-  }
-  
-  .local img {
+}
+
+.local img {
     max-width: 100%;
     height: auto;
     border-radius: 8px; /* Bordas arredondadas nas fotos do local */
     transition: transform 0.3s ease;
-  }
-  
-  .local img:hover {
+}
+
+.local img:hover {
     transform: scale(1.1); /* Efeito de zoom nas fotos do local */
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
     .barber, .local img {
-      flex: 1 1 calc(50% - 20px); /* Ajuste para telas menores */
+        flex: 1 1 calc(50% - 20px); /* Ajuste para telas menores */
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .barber, .local img {
-      flex: 1 1 100%; /* Cada item ocupa 100% em telas pequenas */
+        flex: 1 1 100%; /* Cada item ocupa 100% em telas pequenas */
     }
-  }
-  
+}
