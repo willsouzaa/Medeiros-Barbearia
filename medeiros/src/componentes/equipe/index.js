@@ -2,7 +2,7 @@ import React from 'react';
 import "./equipe.css"; // Certifique-se de importar o CSS
 
 // Importe suas imagens aqui
-import barbeiro1 from './equipe.JPG'; // Exemplo de foto do barbeiro 1
+import equipeImg from './equipe.jpg'; // Exemplo de foto do barbeiro 1
 import local1 from './espaço1.jpg'; // Exemplo de foto do local
 import local2 from './espaço2.jpg'; // Exemplo de foto do local
 import local3 from './espaço3.jpg'; // Exemplo de foto do local
@@ -13,7 +13,7 @@ function Equipe() {
       <h2>Conheça Nossa Equipe</h2>
       <div className="barbers">
         <div className="barber">
-          <img className='' src={barbeiro1} alt="Barbeiro 1" />
+          <img className='' src={equipeImg} alt="equipeImg" />
           <p>Nome do Barbeiro 1</p>
         </div>
         {/* Você pode adicionar mais barbeiros aqui */}
