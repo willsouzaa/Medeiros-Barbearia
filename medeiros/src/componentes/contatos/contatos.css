@@ -1,0 +1,114 @@
+/* Estilos para a seção de Contatos */
+.contatos {
+    background: linear-gradient(135deg, #0d0d0d 40%, #2a2a2a); /* Gradiente de fundo para um efeito visual interessante */
+    padding: 50px 20px; /* Espaçamento interno da seção */
+    border-radius: 15px; /* Bordas arredondadas para suavizar a aparência */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidade à seção */
+    color: rgb(0, 0, 0); /* Cor do texto padrão */
+}
+
+.contatos h2 {
+    margin-bottom: 40px; /* Espaço abaixo do título principal */
+}
+
+.contato-secao {
+    margin-bottom: 50px; /* Espaço abaixo de cada seção de contato */
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo levemente transparente para destaque */
+    padding: 30px; /* Espaçamento interno da seção de contato */
+    border-radius: 15px; /* Bordas arredondadas para a seção */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra para um efeito de destaque */
+}
+
+.contato-secao h3 {
+    margin-bottom: 20px; /* Espaço abaixo do subtítulo */
+    font-size: 1.8em; /* Tamanho da fonte do subtítulo */
+    color: rgb(240, 191, 46); /* Cor do texto do subtítulo */
+    text-align: left; /* Alinhamento à esquerda do texto */
+}
+
+.info-contato p {
+    margin: 10px 0; /* Margem acima e abaixo dos parágrafos */
+    font-size: 1.1em; /* Tamanho da fonte dos parágrafos */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+}
+
+.info-contato p a {
+    color: rgba(234,198,87,1); /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.info-contato p a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+/* Estilos para a seção de Redes Sociais */
+.redes-sociais {
+    margin-top: 20px; /* Espaço acima da seção de redes sociais */
+}
+
+.redes-sociais h4 {
+    margin-bottom: 10px; /* Espaço abaixo do título das redes sociais */
+    color: rgba(234,198,87,1); /* Cor do texto do título das redes sociais */
+    font-size: 1.5em; /* Tamanho da fonte do título */
+    text-align: left; /* Alinhamento à esquerda do texto */
+}
+
+.redes-sociais nav {
+    text-align: left; /* Alinhamento à esquerda para os links de redes sociais */
+}
+
+.redes-sociais a {
+    color: rgba(234,198,87,1); /* Cor dos links de redes sociais */
+    font-size: 1.2em; /* Tamanho da fonte dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    margin-right: 15px; /* Espaço à direita dos links */
+    transition: color 0.3s ease; /* Transição suave para mudança de cor */
+}
+
+.redes-sociais a:hover {
+    color: #ffffff; /* Muda a cor do link para branco ao passar o mouse */
+}
+
+/* Estilos discretos para a seção de contato do desenvolvedor */
+.desenvolvedor {
+    font-size: 0.9em; /* Tamanho da fonte menor para o contato do desenvolvedor */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 40px; /* Espaço acima da seção do desenvolvedor */
+    color: #a0a0a0; /* Texto em cinza claro para discrição */
+}
+
+.desenvolvedor a {
+    color: #a0a0a0; /* Cor dos links do desenvolvedor */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.desenvolvedor a:hover {
+    color: rgba(234,198,87,1); /* Leve destaque na cor ao passar o mouse */
+}
+
+/* Estilos de Responsividade */
+@media (max-width: 768px) {
+    section {
+        padding: 30px 15px; /* Reduz o padding para telas menores */
+    }
+
+    h2, h3 {
+        font-size: 1.5em; /* Tamanho da fonte reduzido para cabeçalhos */
+    }
+
+    .contato-secao h3 {
+        font-size: 1.5em; /* Tamanho da fonte reduzido para subtítulos */
+    }
+
+    .info-contato p {
+        font-size: 1em; /* Tamanho da fonte reduzido para parágrafos */
+    }
+
+    .redes-sociais a {
+        font-size: 1em; /* Tamanho da fonte reduzido para links de redes sociais */
+    }
+
+    .desenvolvedor {
+        font-size: 0.8em; /* Tamanho da fonte menor para o contato do desenvolvedor em telas pequenas */
+    }
+}

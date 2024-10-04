@@ -1,13 +1,14 @@
 body {
-  margin: 0;
+  margin: 0; /* Remove a margem padrão do body, evitando espaços indesejados ao redor do conteúdo. */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    sans-serif; /* Define uma pilha de fontes para o corpo do texto, priorizando fontes do sistema para melhor desempenho e aparência. */
+    
+  -webkit-font-smoothing: antialiased; /* Ativa suavização de fontes para navegadores WebKit, melhorando a legibilidade em fontes sem serifa. */
+  -moz-osx-font-smoothing: grayscale; /* Ativa suavização de fontes para Firefox em macOS, resultando em um texto mais limpo e legível. */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    monospace; /* Define uma pilha de fontes para elementos de código, utilizando fontes monoespaçadas que são ideais para exibir código fonte. */
 }

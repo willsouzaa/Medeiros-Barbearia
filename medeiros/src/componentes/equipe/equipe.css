@@ -2,22 +2,22 @@
 
 .equipe {
     position: relative; /* Necessário para posicionar o pseudo-elemento */
-    padding: 20px;
-    text-align: center;
-    color: rgba(234, 198, 87, 1); /* Cor do texto */
-    font-family: Arial, sans-serif;
+    padding: 20px; /* Espaçamento interno da seção */
+    text-align: center; /* Centraliza o texto */
+    color: rgba(234, 198, 87, 1); /* Cor do texto em um tom dourado */
+    font-family: Arial, sans-serif; /* Fonte utilizada na seção */
     background: linear-gradient(to bottom, #4B3D1D, #000000, #4B3D1D); /* Degradê do dourado escuro para preto e volta para dourado */
     overflow: hidden; /* Impede que o conteúdo saia da área da seção */
 }
 
 /* Pseudo-elemento para a sobreposição escura */
 .equipe::before {
-    content: '';
+    content: ''; /* Necessário para criar um pseudo-elemento vazio */
     position: absolute; /* Posiciona o pseudo-elemento em relação ao pai */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; /* Alinha ao topo */
+    left: 0; /* Alinha à esquerda */
+    right: 0; /* Alinha à direita */
+    bottom: 0; /* Alinha à parte inferior */
     background-color: rgba(0, 0, 0, 0.5); /* Cor preta com opacidade de 50% */
     z-index: 0; /* Coloca a sobreposição atrás do conteúdo */
 }
@@ -28,59 +28,61 @@
     z-index: 1; /* Coloca o conteúdo acima da sobreposição */
 }
 
-/* Outras classes */
+/* Estilos para os cartões dos barbeiros */
 .barbers {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Para responsividade */
+    display: flex; /* Flexbox para layout responsivo */
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
     gap: 20px; /* Espaço entre os barbeiros */
 }
 
+/* Estilos individuais dos cartões dos barbeiros */
 .barber {
-    background-color: rgba(234, 198, 87, 0.8); /* Fundo dos cartões */
-    border-radius: 8px;
-    padding: 10px;
-    transition: transform 0.3s ease;
+    background-color: rgba(234, 198, 87, 0.8); /* Fundo dos cartões em tom dourado com opacidade */
+    border-radius: 8px; /* Bordas arredondadas nos cartões */
+    padding: 8px; /* Espaçamento interno dos cartões */
+    transition: transform 0.3s ease; /* Transição suave para o efeito de hover */
 }
 
 .barber:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse sobre o cartão */
 }
 
 .barber img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%; /* Faz as imagens dos barbeiros ficarem circulares */
+    max-width: 100%; /* Imagem não ultrapassa a largura do cartão */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 30%; /* Faz as imagens dos barbeiros ficarem circulares */
 }
 
+/* Estilos para a seção local */
 .local {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Para responsividade */
+    display: flex; /* Flexbox para layout responsivo */
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
     gap: 10px; /* Espaço entre as fotos */
-    margin-top: 20px;
+    margin-top: 20px; /* Espaço acima da seção local */
 }
 
 .local img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Imagem não ultrapassa a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
     border-radius: 8px; /* Bordas arredondadas nas fotos do local */
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Transição suave para o efeito de hover */
 }
 
 .local img:hover {
-    transform: scale(1.1); /* Efeito de zoom nas fotos do local */
+    transform: scale(1.1); /* Efeito de zoom nas fotos do local ao passar o mouse */
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .barber, .local img {
-        flex: 1 1 calc(50% - 20px); /* Ajuste para telas menores */
+        flex: 1 1 calc(50% - 20px); /* Ajuste para telas menores, duas colunas */
     }
 }
 
 @media (max-width: 480px) {
     .barber, .local img {
-        flex: 1 1 100%; /* Cada item ocupa 100% em telas pequenas */
+        flex: 1 1 100%; /* Cada item ocupa 100% em telas pequenas, uma coluna */
     }
 }
