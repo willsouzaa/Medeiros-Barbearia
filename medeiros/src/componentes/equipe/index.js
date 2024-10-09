@@ -10,11 +10,10 @@ import local3 from './espaço3.jpg'; // Exemplo de foto do local
 function Equipe() {
   return (
     <section className="equipe">
-      <h2>Conheça Nossa Equipe</h2>
+
       <div className="barbers">
         <div className="barber">
           <img className='' src={equipeImg} alt="equipeImg" />
-          <p>Nome do Barbeiro 1</p>
         </div>
         {/* Você pode adicionar mais barbeiros aqui */}
       </div>
