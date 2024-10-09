@@ -93,7 +93,7 @@ h1, h2, h3 {
 }
 
 .agendamentoOnline-button{
-  display: flex;
+  display: flex;/* Flexbox para centralizar o texto */
   justify-content: center;
   align-items: center;
   background-color: rgba(234,198,87,245);
@@ -149,4 +149,28 @@ h1, h2, h3 {
   #localizacao iframe {
       height: 450px; /* Altura padrão para telas maiores */
   }
+}
+.botaoMapa-containe{
+  position: fixed; /* Permite que o botão fique fixo na tela */
+  right: 20px; /* Distância da borda direita */
+  bottom: 20px; /* Distância da borda inferior */
+  z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+}
+
+.irParaRotas-button{
+  display: flex; /* Flexbox para centralizar o texto */
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(234,198,87,245);
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  border-radius: 50px; /* Botão arredondado */
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.irParaRotas-button:hover{
+  background-color: #d49203;
 }
