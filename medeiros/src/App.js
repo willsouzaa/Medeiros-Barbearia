@@ -46,9 +46,18 @@ function App() { // Define o componente funcional App.
                     rel="noopener noreferrer" // Melhora a segurança ao abrir um link em nova aba.
                     className="whatsapp-button" // Classe para estilização do botão.
                 >
-                    Fazer um agendamento {/* Texto do botão */}
+                    Agendamento via whatsapp {/* Texto do botão */}
+                </a>
+                <a
+                    href={`https://sites.appbarber.com.br/barbershopmedeiros`} // Link Site de agendamento online.
+                    target="_blank" // Abre o link em uma nova aba.
+                    rel="noopener noreferrer" // Melhora a segurança ao abrir um link em nova aba.
+                    className="agendamentoOnline-button" // Classe para estilização do botão.
+                >
+                    Agendamento online {/* Texto do botão */}
                 </a>
             </div>
+            
         </div>
     );
 }
