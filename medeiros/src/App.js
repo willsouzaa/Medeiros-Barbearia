@@ -5,7 +5,7 @@ import Contatos from './componentes/contatos'; // Importa o componente Contatos.
 import Logo from './componentes/imagens/logo.png'; // Importa a imagem do logo.
 
 function App() { // Define o componente funcional App.
-    const whatsappNumber = "5548988405365"; // Número do WhatsApp para agendamentos.
+    const whatsappNumber = "5548996748923"; // Número do WhatsApp para agendamentos.
 
     return (
         <div className="App"> {/* Contêiner principal do aplicativo */}
