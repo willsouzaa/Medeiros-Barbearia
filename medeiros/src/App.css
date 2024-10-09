@@ -174,3 +174,16 @@ h1, h2, h3 {
 .irParaRotas-button:hover{
   background-color: #d49203;
 }
+
+@media(max-width: 768px){ /*Diminui o tamanho da fonta em telas menores*/
+  .irParaRotas-button{
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 768px){ /*Diminui a porcentagem do botao sobre a tela*/
+  .irParaRotas-button{
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+}

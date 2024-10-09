@@ -89,7 +89,7 @@
 /* Estilos de Responsividade */
 @media (max-width: 768px) {
     section {
-        padding: 30px 15px; /* Reduz o padding para telas menores */
+        padding: 0; /* Reduz o padding para telas menores */
     }
 
     h2, h3 {
