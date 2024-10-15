@@ -11,7 +11,7 @@ function Contatos() {
         <h3>Barbearia Medeiros</h3> {/* Subtítulo com o nome da barbearia */}
         <address className="info-contato"> {/* Elemento de endereço semântico */}
           <p><strong>Telefone:</strong> <a href="tel:+55048996748923">(48) 99674-8923</a></p> {/* Link de telefone com link direto para discagem */}
-          <p><strong>Email:</strong> <a href="https://barbeariamedeiros.vercel.app" target="_blank" rel="noreferrer">barbeariamedeiros.vercel.app</a></p> {/* Link para o site da barbearia */}
+          <p><strong>Email:</strong> <a href="https://barbeariamedeiros.com.br" target="_blank" rel="noreferrer">barbeariamedeiros.com.br</a></p> {/* Link para o site da barbearia */}
           <p><strong>Endereço:</strong> R. Valdemar Viêira, 1415 - Jardim Eldorado, Palhoça - SC, 88133-390</p> {/* Informações de endereço */}
         </address>
         <div className="redes-sociais"> {/* Contêiner para as redes sociais */}
@@ -30,7 +30,7 @@ function Contatos() {
         <address className="info-contato"> {/* Elemento de endereço semântico */}
           <p><strong>Nome:</strong> Paulo Amancio</p> {/* Nome do desenvolvedor */}
           <p><strong>Telefone:</strong> <a href="tel:+5548988405365">(48) 98840-5365</a></p> {/* Link de telefone com link direto para discagem */}
-          <p><strong>Portfólio:</strong> <a href="https://Pauloamancio.vercel.app" target="_blank" rel="noreferrer">Pauloamancio.vercel.app</a></p> {/* Link para o portfólio do desenvolvedor */}
+          <p><strong>Portfólio:</strong> <a href="https://Pauloamancio.com.br" target="_blank" rel="noreferrer">Pauloamancio.com.br</a></p> {/* Link para o portfólio do desenvolvedor */}
         </address>
         <div className="redes-sociais"> {/* Contêiner para as redes sociais do desenvolvedor */}
           <h4>Siga o desenvolvedor:</h4> {/* Título da seção de redes sociais */}

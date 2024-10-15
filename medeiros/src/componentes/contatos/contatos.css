@@ -30,6 +30,7 @@
     margin: 10px 0; /* Margem acima e abaixo dos parágrafos */
     font-size: 1.1em; /* Tamanho da fonte dos parágrafos */
     line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    color: rgba(234,198,87,1) ;
 }
 
 .info-contato p a {

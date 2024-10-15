@@ -1,14 +1,17 @@
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
 /* equipe.css */
 
 .equipe {
-    position: relative; /* Necessário para posicionar o pseudo-elemento */
-    padding: 20px; /* Espaçamento interno da seção */
-    text-align: center; /* Centraliza o texto */
-    color: rgba(234, 198, 87, 1); /* Cor do texto em um tom dourado */
-    font-family: Arial, sans-serif; /* Fonte utilizada na seção */
-    background: linear-gradient(to bottom, #4B3D1D, #000000, #4B3D1D); /* Degradê do dourado escuro para preto e volta para dourado */
-    overflow: hidden; /* Impede que o conteúdo saia da área da seção */
+    padding: 20px;
+    text-align: center;
+    color: rgba(234, 198, 87, 1);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #4B3D1D, #000000, #4B3D1D);
+    position: relative;
 }
+
 
 /* Pseudo-elemento para a sobreposição escura */
 .equipe::before {
@@ -56,23 +59,31 @@
 
 /* Estilos para a seção local */
 .local {
-    display: flex; /* Flexbox para layout responsivo */
-    justify-content: center; /* Centraliza os itens */
-    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
-    gap: 10px; /* Espaço entre as fotos */
-    margin-top: 20px; /* Espaço acima da seção local */
+    margin-top: 20px;
+    padding: 0 15px; /* Adiciona espaçamento lateral */
 }
 
-.local img {
-    max-width: 100%; /* Imagem não ultrapassa a largura do contêiner */
+.local-img {
+    display: block; /* Garante que a imagem seja tratada como um bloco */
+    width: 60%; /* Define o tamanho da imagem */
     height: auto; /* Mantém a proporção da imagem */
-    border-radius: 8px; /* Bordas arredondadas nas fotos do local */
-    transition: transform 0.3s ease; /* Transição suave para o efeito de hover */
+    border-radius: 8px; /* Mantém as bordas arredondadas */
+    margin: 0 auto; /* Centraliza horizontalmente a imagem */
 }
 
-.local img:hover {
-    transform: scale(1.1); /* Efeito de zoom nas fotos do local ao passar o mouse */
+.slick-slide {
+    display: flex;
+    justify-content: center;
 }
+
+.slick-dots li button:before {
+    color: rgba(234, 198, 87, 1); /* Cor das bolinhas */
+}
+
+.slick-prev:before, .slick-next:before {
+    color: rgba(234, 198, 87, 1); /* Cor das setas de navegação */
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -84,5 +95,24 @@
 @media (max-width: 480px) {
     .barber, .local img {
         flex: 1 1 100%; /* Cada item ocupa 100% em telas pequenas, uma coluna */
+    }
+}
+
+.carousel {
+    
+}
+
+.slick-prev:before, .slick-next:before {
+    color: rgb(2, 2, 2); /* Cor das setas de navegação */
+}
+
+.slick-dots li button:before {
+    color: rgba(234, 198, 87, 1); /* Cor das bolinhas de navegação */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .local-img {
+        width: 100%; /* A imagem ocupa 100% da largura em telas menores */
     }
 }

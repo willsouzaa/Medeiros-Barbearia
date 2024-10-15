@@ -84,6 +84,7 @@ h1, h2, h3 {
   color: rgb(0, 0, 0);
   padding: 10px 20px;
   border-radius: 50px; /* Botão arredondado */
+  border: 2px solid black;
   text-decoration: none;
   font-size: 16px;
 }
@@ -103,6 +104,7 @@ h1, h2, h3 {
   text-decoration: none;
   font-size: 16px;
   margin-top: 10px;
+  border: 2px solid black;
 
 }
 
@@ -175,7 +177,7 @@ h1, h2, h3 {
   background-color: #d49203;
 }
 
-@media(max-width: 768px){ /*Diminui o tamanho da fonta em telas menores*/
+@media(max-width: 1067px){ /*Diminui o tamanho da font em telas menores*/
   .irParaRotas-button{
     font-size: 12px;
   }
@@ -186,4 +188,8 @@ h1, h2, h3 {
     margin-left: 30%;
     margin-right: 30%;
   }
+}
+
+.info-contatos, strong{
+  color: #f4f4f4;
 }
