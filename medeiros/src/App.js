@@ -1,75 +1,123 @@
-import React from 'react'; // Importa React
-import './App.css'; // Importa o CSS
-import Home from './componentes/home'; // Importa o componente Home
-import Equipe from './componentes/equipe'; // Importa o componente Equipe
-import Contatos from './componentes/contatos'; // Importa o componente Contatos
-import Logo from './componentes/imagens/logo.png'; // Importa a imagem do logo
+import React, { useState } from 'react';
+import './App.css';
+
+import SelecaoLocal from './componentes/SelecaoLocal/SelecaoLocal';
+
+import HomeEldorado from './componentes/Jardin-eldorado/home';
+import HomePagani from './componentes/Pagani/home';
+
+import EquipeEldorado from './componentes/Jardin-eldorado/equipe';
+import EquipePagani from './componentes/Pagani/equipe'; // clone e personalize
+
+import Contatos from './componentes/Jardin-eldorado/contatos';
+import Logo from './componentes/Jardin-eldorado/imagens/logo.png';
 
 function App() {
-    const whatsappNumber = "5548996748923"; // Número do WhatsApp
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [local, setLocal] = useState(null); // <- localidade selecionada
+  const whatsappNumber = "5548996748923"; 
 
-    return (
-        <div className="App">
-            <header>
-                <img src={Logo} alt="Logo SMBarber" className="logo" />
-                <nav>
-                    <div className="nav-links">
-                        <a href="#home">Sobre</a>
-                        <a href="#equipe">Equipe</a>
-                        <a href="#contatos">Contato</a>
-                    </div>
-                </nav>
-            </header>
-            <main>
-                <section id="home">
-                    <Home />
-                </section>
-                <section id="equipe">
-                    <Equipe />
-                </section>
-                <section id="localizacao">
-                    <h2>Localização</h2>
-                    <iframe
-                        title="Mapa da Barbearia"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.61947220776176!2d-48.665370401517634!3d-27.62064536178305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95273542bc0551fd%3A0x7f013ddaa9edf83c!2sBarbershop%20Medeiros!5e0!3m2!1spt-BR!2sbr!4v1727743027149!5m2!1spt-BR!2sbr"
-                        allowFullScreen
-                        loading="lazy"
-                    ></iframe>
-                </section>
-                <div className='botaoMapa-container'>
-                    <a
-                        href={`https://maps.google.com/maps/dir//Barbershop+Medeiros+R.+Valdemar+Vi%C3%AAira,+1415+-+Jardim+Eldorado+Palho%C3%A7a+-+SC+88133-390/@-27.6205542,-48.6651694,20z/data=!4m5!4m4!1m0!1m2!1m1!1s0x95273542bc0551fd:0x7f013ddaa9edf83c`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="irParaRotas-button"
-                    >
-                        Abrir no Google Maps
-                    </a>
-                </div>
-                <section id="contatos">
-                    <Contatos />
-                </section>
-            </main>
-            <div className="whatsapp-button-container">
-                <a
-                    href={`https://wa.me/${whatsappNumber}?text=Olá, gostaria de fazer um agendamento.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="whatsapp-button"
-                >
-                    Agendamento via WhatsApp
-                </a>
-                <a
-                    href={`https://sites.appbarber.com.br/barbershopmedeiros`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="agendamentoOnline-button"
-                >
-                    Agendamento online
-                </a>
-            </div>
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  if (!local) {
+    return <SelecaoLocal onSelecionar={setLocal} />;
+  }
+
+  // define componentes por local
+  const Home = local === 'eldorado' ? HomeEldorado : HomePagani;
+  const Equipe = local === 'eldorado' ? EquipeEldorado : EquipePagani;
+
+  return (
+    <div className="App">
+      <header>
+        <img src={Logo} alt="Logo SMBarber" className="logo" />
+        <div className="scroll-indicator">⬇</div>
+        <nav>
+          <div className="menu-icon" onClick={toggleMenu}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+            <a href="#home" onClick={() => setMenuOpen(false)}>Sobre</a>
+            <a href="#equipe" onClick={() => setMenuOpen(false)}>Equipe</a>
+            <a href="#contatos" onClick={() => setMenuOpen(false)}>Contato</a>
+            <a 
+              href="https://sites.appbarber.com.br/barbershopmedeiros" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="agendamentoOnline-button"
+              onClick={() => setMenuOpen(false)}
+            >
+              Agendamento online
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section id="home">
+          <Home />
+        </section>
+
+        <section id="equipe">
+          <Equipe />
+        </section>
+
+        <section id="localizacao">
+          <h2>Localização</h2>
+          {/* Aqui você pode exibir mapas diferentes conforme a unidade */}
+          {local === 'eldorado' ? (
+            <iframe
+              title="Mapa - Eldorado"
+              src="https://www.google.com/maps/embed?...(link da unidade Eldorado)..."
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          ) : (
+            <iframe
+              title="Mapa - Pagani"
+              src="https://www.google.com/maps/embed?...(link da unidade Pagani)..."
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          )}
+        </section>
+
+        <div className="botaoMapa-container">
+          <a
+            href={
+              local === 'eldorado'
+                ? 'https://maps.google.com/maps/dir//Barbershop+Medeiros...Eldorado'
+                : 'https://maps.google.com/maps/dir//Barbershop+Medeiros...Pagani'
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="irParaRotas-button"
+          >
+            Abrir no Google Maps
+          </a>
         </div>
-    );
+
+        <section id="contatos">
+          <Contatos />
+        </section>
+      </main>
+
+      <div className="whatsapp-button-container">
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=Olá, gostaria de fazer um agendamento.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whatsapp-button"
+        >
+          <i className="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  );
 }
 
 export default App;
