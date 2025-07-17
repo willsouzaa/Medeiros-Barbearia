@@ -1,6 +1,18 @@
+/* Aplicação global para evitar overflow */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Container principal */
 .selecao-local {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background: url('../../componentes/Jardin-eldorado/imagens/fundo-header.jpeg') no-repeat center center/cover;
   display: flex;
   align-items: center;
@@ -8,8 +20,10 @@
   position: relative;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow: hidden;
+  padding: 0 10px;
 }
 
+/* Sobreposição escurecida */
 .selecao-overlay {
   position: absolute;
   top: 0;
@@ -22,52 +36,62 @@
   justify-content: center;
 }
 
+/* Grade responsiva */
 .selecao-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
+  max-width: 100%;
 }
 
+/* Bloco de cada local */
 .local-box {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
-  padding: 30px;
-  border-radius: 20px;
+  padding: 20px;
+  border-radius: 15px;
   text-align: center;
-  width: 300px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 240px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
   animation: fadeIn 0.8s ease-in-out;
 }
 
+/* Logo menor */
 .logo {
-  width: 150px;
+  width: 120px;
   margin-bottom: 5px;
 }
 
+/* Título e subtítulo menores */
 .titulo {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
   color: #eac657;
 }
 
 .subtitulo {
-  font-size: 1rem;
-  margin-bottom: 25px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
   color: #f0f0f0;
 }
 
+/* Botão menor e central */
 .botao {
   background-color: #eac657;
   color: #000;
-  padding: 12px 25px;
-  font-size: 1rem;
+  padding: 10px 20px;
+  font-size: 0.95rem;
   font-weight: bold;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 .botao:hover {
@@ -86,9 +110,28 @@
   }
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
   .selecao-grid {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+  }
+
+  .local-box {
+    max-width: 85vw;
+    padding: 16px;
+  }
+
+  .titulo {
+    font-size: 1.1rem;
+  }
+
+  .subtitulo {
+    font-size: 0.85rem;
+  }
+
+  .botao {
+    font-size: 0.9rem;
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react'; // Importa a biblioteca React para criar componentes
 import './contatos.css'; // Importa os estilos CSS específicos para o componente
 
-function Contatos() {
+function ContatoEldorado() {
+ 
   return (
     <section className="contatos"> {/* Seção principal para contatos */}
       <h2>Entre em Contato</h2> {/* Título da seção de contato */}
@@ -38,4 +39,4 @@ function Contatos() {
   );
 }
 
-export default Contatos; // Exporta o componente Contatos para uso em outros arquivos
+export default ContatoEldorado; // Exporta o componente Contatos para uso em outros arquivos

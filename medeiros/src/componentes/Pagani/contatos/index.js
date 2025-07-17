@@ -1,7 +1,6 @@
 import React from 'react'; // Importa a biblioteca React para criar componentes
 import './contatos.css'; // Importa os estilos CSS específicos para o componente
-
-function Contatos() {
+function ContatoPagani() {
   return (
     <section className="contatos"> {/* Seção principal para contatos */}
       <h2>Entre em Contato</h2> {/* Título da seção de contato */}
@@ -12,7 +11,7 @@ function Contatos() {
         <address className="info-contato"> {/* Elemento de endereço semântico */}
           <p><strong>Telefone:</strong> <a href="tel:+55048996748923">(48) 99674-8923</a></p> {/* Link de telefone com link direto para discagem */}
           <p><strong>Email:</strong> <a href="https://barbeariamedeiros.com.br" target="_blank" rel="noreferrer">barbeariamedeiros.com.br</a></p> {/* Link para o site da barbearia */}
-          <p><strong>Endereço:</strong> R. Valdemar Viêira, 1415 - Jardim Eldorado, Palhoça - SC, 88133-390</p> {/* Informações de endereço */}
+          <p><strong>Endereço:</strong> Rua José Bonifácio de souza 73,Pagani - Palhoça - SC</p> {/* Informações de endereço */}
         </address>
         <div className="redes-sociais"> {/* Contêiner para as redes sociais */}
           <h4>Siga-nos nas redes sociais:</h4> {/* Título da seção de redes sociais */}
@@ -25,17 +24,17 @@ function Contatos() {
       </div>
 
       <footer className="rodape">
-  <div className="contato-secao">
-    <h3>Desenvolvido por</h3>
-    <address className="info-contato">
-      <p><strong>Nome:</strong> Paulo Amancio</p>
-      <p><strong>Telefone:</strong> <a href="tel:+5548988405365">(48) 98840-5365</a></p>
-      <p><strong>Portfólio:</strong> <a href="https://Pauloamancio.com.br" target="_blank" rel="noreferrer">Pauloamancio.com.br</a></p>
-    </address>
-  </div>
-</footer>
+        <div className="contato-secao">
+          <h3>Desenvolvido por</h3>
+          <address className="info-contato">
+            <p><strong>Nome:</strong> Paulo Amancio</p>
+            <p><strong>Telefone:</strong> <a href="tel:+5548988405365">(48) 98840-5365</a></p>
+            <p><strong>Portfólio:</strong> <a href="https://Pauloamancio.com.br" target="_blank" rel="noreferrer">Pauloamancio.com.br</a></p>
+          </address>
+        </div>
+      </footer>
     </section>
   );
 }
 
-export default Contatos; // Exporta o componente Contatos para uso em outros arquivos
+export default ContatoPagani; // Exporta o componente Contatos para uso em outros arquivos

@@ -10,8 +10,8 @@ function SelecaoLocal({ onSelecionar }) {
           {/* Caixa - Eldorado */}
           <div className="local-box">
             <img src={logo} alt="Logo Eldorado" className="logo" />
-            <h2 className="titulo">Unidade Jardim Eldorado</h2>
-            <p className="subtitulo">Rua Valdemar Vieira, Palhoça - SC</p>
+            <h2 className="titulo">Jardim Eldorado</h2>
+            <p className="subtitulo">Rua Valdemar Vieira-Jardim eldorado, Palhoça - SC</p>
             <button className="botao" onClick={() => onSelecionar('eldorado')}>
               Acessar
             </button>
@@ -20,8 +20,8 @@ function SelecaoLocal({ onSelecionar }) {
           {/* Caixa - Pagani */}
           <div className="local-box">
             <img src={logo} alt="Logo Pagani" className="logo" />
-            <h2 className="titulo">Unidade Pagani</h2>
-            <p className="subtitulo">Rua Rua José Bonifácio de souza 73,Pagani - Palhoça - SC</p>
+            <h2 className="titulo">Pagani</h2>
+            <p className="subtitulo">Rua José Bonifácio de souza 73,Pagani - Palhoça - SC</p>
             <button className="botao" onClick={() => onSelecionar('pagani')}>
               Acessar
             </button>
