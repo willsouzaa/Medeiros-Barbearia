@@ -27,7 +27,7 @@ function Home() {
             {/* Botão de Agendamento */}
             <div className="botao-agendamento-container">
                 <a 
-                    href="https://seulinkdeagendamento.com" 
+                    href="https://sites.appbarber.com.br/barbershopmedei-r6kc" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="botao-agendamento"

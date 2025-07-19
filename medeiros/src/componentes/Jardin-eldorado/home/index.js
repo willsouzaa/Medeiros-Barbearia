@@ -1,28 +1,35 @@
-import React from 'react'; // Importa a biblioteca React para permitir a criação de componentes.
-import "./home.css"; // Importa o arquivo CSS para aplicar estilos ao componente.
-import barbaImg from './barba2.JPG'; // Importa a imagem para o serviço de barba.
-import corteImg from "./corte1.JPG"; // Importa a imagem para o serviço de corte de cabelo.
-import infantil from './infantil.JPG'; // Importa a imagem para o serviço de corte infantil.
-import luzes from './Luzes.JPG'; // Importa a imagem para o serviço de luzes.
-import limpeza from './limpezapele.jpeg'; 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React, { useEffect, useState, useRef } from 'react';
+import "./home.css";
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import { Autoplay } from 'swiper/modules';
 
-// Importe as imagens
-import barbaImg1 from './barba2.JPG';
-import barbaImg2 from './barba2.JPG';
-import corteImg1 from './corte1.JPG';
-import corteImg2 from './corte2.jpeg';
-import infantil1 from './infantil.JPG';
-import infantil2 from './infantil2.jpeg';
-import luzes1 from './Luzes.JPG'
-import limpezapele1 from './limpezapele.jpeg';
+import { motion, useAnimation } from 'framer-motion';
 
 function Home() {
+    const controls = useAnimation();
+    const sectionRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    controls.start({ opacity: 1, x: 0 });
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, [controls]);
+
     return (
-        <section className="avaliacoes">
+        <section className="avaliacoes" ref={sectionRef}>
             <h2>O que dizem sobre a Barbearia Medeiros</h2>
             <div className="avaliacoes-grid">
                 <div className="avaliacao">
@@ -42,12 +49,22 @@ function Home() {
                 </div>
             </div>
 
-            {/* Botão de Agendamento */}
+            {/* Botão de Agendamento com Animação */}
             <div className="botao-agendamento-container">
-                <a 
-                    href="https://seulinkdeagendamento.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                {isVisible && (
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={controls}
+                        transition={{ duration: 0.8 }}
+                        className="mensagem-download"
+                    >
+                        📲 Baixe o app de agendamento
+                    </motion.div>
+                )}
+                <a
+                    href="https://sites.appbarber.com.br/barbershopmedeiros"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="botao-agendamento"
                 >
                     Agendar Horário
@@ -57,4 +74,4 @@ function Home() {
     );
 }
 
-export default Home; // Exporta o componente Home para ser usado em outros arquivos.
+export default Home;
