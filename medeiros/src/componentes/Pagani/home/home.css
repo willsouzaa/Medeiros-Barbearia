@@ -49,64 +49,67 @@
     font-family: Arial, sans-serif; /* Define a fonte */
     font-size: 2rem; /* Tamanho do texto para a descrição */
 }
-/* Container de serviços com limite de largura */
-.servicos {
-    display: flex; /* Utiliza flexbox para o layout */
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
-    justify-content: space-between; /* Espaçamento igual entre os itens */
-    gap: 15px; /* Espaçamento entre os serviços */
-    max-width: 1200px; /* Limita a largura total do container */
-    margin: 0 auto; /* Centraliza o container horizontalmente */
+.avaliacoes {
+  background: linear-gradient(to bottom, #1b1b1b, #000);
+  color: rgba(234,198,87,1);
+  text-align: center;
+  padding: 60px 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilizando cada serviço */
-.servico {
-    flex: 1 1 calc(25% - 30px); /* Cada item ocupa 25% da linha, ajustando com a margem */
-    max-width: 280px; /* Limita a largura máxima de cada item */
-    text-align: center; /* Centraliza o texto dentro de cada serviço */
-    margin: 15px; /* Margem externa para espaçamento */
-    padding: 10px; /* Espaçamento interno */
-    background-color: rgba(234,198,87,1); /* Cor de fundo amarelada */
-    border-radius: 8px; /* Bordas arredondadas para suavizar os cantos */
-    transition: transform 0.3s ease; /* Suaviza a transformação ao passar o mouse */
+.avaliacoes h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-/* Efeito de hover nos serviços */
-.servico:hover {
-    transform: scale(1.1); /* Aumenta a escala em 10% ao passar o mouse */
+.avaliacoes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
-/* Estilizando as imagens dos serviços */
-.servico img {
-    max-width: 100%; /* Imagem ocupa 100% da largura do contêiner */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 6px; /* Arredonda levemente as bordas das imagens */
+.avaliacao {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 300px;
+  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
 }
 
-/* Títulos dos serviços */
-.servico h3 {
-    font-size: 1.2rem; /* Tamanho do texto para os títulos */
-    margin: 10px 0; /* Espaçamento acima e abaixo do título */
-    color: black;
+.avaliacao:hover {
+  transform: scale(1.05);
 }
 
-/* Descrição dos serviços */
-.servico p {
-    font-size: 0.9rem; /* Tamanho do texto para a descrição */
-    color: #333; /* Cor do texto da descrição */
+.avaliacao .estrela {
+  color: #f9d94c;
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 10px;
 }
 
-/* Tornar responsivo em telas menores */
-@media (max-width: 768px) {
-    .servico {
-        flex: 1 1 calc(50% - 20px); /* Cada item ocupa 50% da linha em telas menores */
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+.botao-agendamento-container {
+  margin-top: 40px;
+  text-align: center;
 }
 
-@media (max-width: 480px) {
-    .servico {
-        flex: 1 1 100%; /* Cada item ocupa 100% da linha em telas muito pequenas */
-    }
+.botao-agendamento {
+  background-color: rgba(234,198,87,1);
+  color: black;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.botao-agendamento:hover {
+  background-color: #d4a400;
+  transform: scale(1.05);
 }

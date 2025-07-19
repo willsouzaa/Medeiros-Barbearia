@@ -6,11 +6,13 @@ import "./equipe.css"; // Seu CSS personalizado
 
 // Importando as imagens
 import equipeImg from './equipe.jpg'; // Foto da equipe
-import local1 from './espaço1.jpg'; // Foto do local 1
-import local2 from './espaço2.jpeg'; // Foto do local 2
-import local3 from './espaço3.jpg'; // Foto do local 3
-import local4 from './espaço4.jpeg'; // Foto do local 3
-import local5 from './espaço5.jpeg'; // Foto do local 3
+import local1 from './espaço11.jpg'; // Foto do local 1
+import local2 from './espaço22.jpeg'; // Foto do local 2
+import local3 from './espaço33.jpg'; // Foto do local 3
+import local4 from './espaço44.jpeg'; // Foto do local 3
+import local5 from './espaço55.jpeg'; // Foto do local 3
+import local6 from './espaço66.jpg'; // Foto do local 3
+
 
 function Equipe() {
   // Configurações do carrossel (slick)
@@ -54,6 +56,9 @@ function Equipe() {
         </div>
         <div>
           <img className='local-img' src={local5} alt="Local da Barbearia 5" />
+        </div>
+        <div>
+          <img className='local-img' src={local6} alt="Local da Barbearia 5" />
         </div>
         {/* Você pode adicionar mais imagens se necessário */}
       </Slider>
