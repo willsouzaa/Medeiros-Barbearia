@@ -34,18 +34,20 @@ function Home() {
             <div className="avaliacoes-grid">
                 <div className="avaliacao">
                     <span className="estrela">★★★★★</span>
-                    <p>"Atendimento impecável e corte top! Recomendo demais."</p>
-                    <strong>— Lucas M.</strong>
+                    <p>"Lugar bem especial realmente. Desde o atendimento a qualidade de serviço nota 10.
+Não troco de jeito nenhum"</p>
+                    <strong>— Adriano M.</strong>
                 </div>
                 <div className="avaliacao">
                     <span className="estrela">★★★★★</span>
-                    <p>"Ambiente limpo, profissionais educados. Melhor barbearia da região!"</p>
-                    <strong>— Rafael S.</strong>
+                    <p>"Eu super recomendo o trabalho desses profissionais,região do Eldorado trabalho profissional atendimento de qualidade.
+Ambiente super sofisticado e elegante super aconchegante."</p>
+                    <strong>— Simone P.</strong>
                 </div>
                 <div className="avaliacao">
                     <span className="estrela">★★★★★</span>
-                    <p>"Já sou cliente há anos. Sempre saio satisfeito."</p>
-                    <strong>— João P.</strong>
+                    <p>"Atendimento excelente, organização o ambiente tudo mt bom,o trabalho é mt top recomendo demais!!!"</p>
+                    <strong>— Tiago P.</strong>
                 </div>
             </div>
 

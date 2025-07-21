@@ -31,7 +31,7 @@ header .logo {
 /* Indicador de rolagem */
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 50px;
   font-size: 50px;
   color: rgba(234, 198, 87, 0.9);
   animation: bounce 1.5s infinite;
@@ -53,7 +53,7 @@ header .logo {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 50px; /* Ajuste conforme necessário */
+  bottom: 55px; /* Ajuste conforme necessário */
   left: 50%;
   transform: translateX(-50%);
   font-size: 70px;
