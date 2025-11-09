@@ -11,22 +11,47 @@ import local2Static from './espaço2.jpeg';
 import local3Static from './espaço3.jpg';
 import local4Static from './espaço4.jpeg';
 import local5Static from './espaço5.jpeg';
+import local7Static from './espaco77.jpg';
+import local8Static from './espaco88.jpg';
+import local9Static from './espaco99.jpg';
+import local0Static from './espaco1010.jpg';
+
 
 function Equipe() {
   const [images, setImages] = useState({ equipe: equipeImgStatic, slides: [local1Static, local2Static, local3Static, local4Static, local5Static] });
 
   useEffect(() => {
     // try load from API first
-    fetch('http://localhost:4000/api/images/jardin-eldorado?page=equipe&slot=main')
+    const apiBase = 'http://localhost:4000';
+
+    // main image (equipe)
+    fetch(`${apiBase}/api/images/jardin-eldorado?page=equipe&slot=main`)
       .then(r => r.json())
       .then(data => {
         if (data && data.length) {
-          setImages(prev => ({ ...prev, equipe: `http://localhost:4000${data[0].url}`, slides: prev.slides }));
+          setImages(prev => ({ ...prev, equipe: `${apiBase}${data[0].url}`, slides: prev.slides }));
+        } else {
+          // fallback: try get any image for the location
+          fetch(`${apiBase}/api/images/jardin-eldorado`).then(r=>r.json()).then(all=>{
+            if(all && all.length) setImages(prev=>({ ...prev, equipe: `${apiBase}${all[0].url}`, slides: prev.slides }));
+          }).catch(()=>{});
+        }
+      }).catch(()=>{
+        // ignore
+      });
+
+    // slides
+    fetch(`${apiBase}/api/images/jardin-eldorado?page=equipe&slot=slide`)
+      .then(r=>r.json())
+      .then(data=>{
+        if(data && data.length) setImages(prev=>({ ...prev, slides: data.map(d=>`${apiBase}${d.url}`) }));
+        else {
+          // fallback: fetch all images for location and use them as slides
+          fetch(`${apiBase}/api/images/jardin-eldorado`).then(r=>r.json()).then(all=>{
+            if(all && all.length) setImages(prev=>({ ...prev, slides: all.map(d=>`${apiBase}${d.url}`) }));
+          }).catch(()=>{});
         }
       }).catch(()=>{});
-
-    fetch('http://localhost:4000/api/images/jardin-eldorado?page=equipe&slot=slide')
-      .then(r=>r.json()).then(data=>{ if(data && data.length) setImages(prev=>({ ...prev, slides: data.map(d=>`http://localhost:4000${d.url}`) })); }).catch(()=>{});
   }, []);
   // Configurações do carrossel (slick)
   const settings = {
