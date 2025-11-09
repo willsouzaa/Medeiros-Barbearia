@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from "react-slick"; // Importa o Slider da biblioteca react-slick
 import "slick-carousel/slick/slick.css"; // Importa o CSS do carrossel
 import "slick-carousel/slick/slick-theme.css"; // Importa o tema do carrossel
 import "./equipe.css"; // Seu CSS personalizado
 
 // Importando as imagens
-import equipeImg from './equipe.jpg'; // Foto da equipe
-import local1 from './espaço1.jpg'; // Foto do local 1
-import local2 from './espaço2.jpeg'; // Foto do local 2
-import local3 from './espaço3.jpg'; // Foto do local 3
-import local4 from './espaço4.jpeg'; // Foto do local 3
-import local5 from './espaço5.jpeg'; // Foto do local 3
+import equipeImgStatic from './equipe.jpg'; // Foto da equipe (fallback)
+import local1Static from './espaço1.jpg';
+import local2Static from './espaço2.jpeg';
+import local3Static from './espaço3.jpg';
+import local4Static from './espaço4.jpeg';
+import local5Static from './espaço5.jpeg';
 
 function Equipe() {
+  const [images, setImages] = useState({ equipe: equipeImgStatic, slides: [local1Static, local2Static, local3Static, local4Static, local5Static] });
+
+  useEffect(() => {
+    // try load from API first
+    fetch('http://localhost:4000/api/images/jardin-eldorado?page=equipe&slot=main')
+      .then(r => r.json())
+      .then(data => {
+        if (data && data.length) {
+          setImages(prev => ({ ...prev, equipe: `http://localhost:4000${data[0].url}`, slides: prev.slides }));
+        }
+      }).catch(()=>{});
+
+    fetch('http://localhost:4000/api/images/jardin-eldorado?page=equipe&slot=slide')
+      .then(r=>r.json()).then(data=>{ if(data && data.length) setImages(prev=>({ ...prev, slides: data.map(d=>`http://localhost:4000${d.url}`) })); }).catch(()=>{});
+  }, []);
   // Configurações do carrossel (slick)
   const settings = {
     dots: true, // Exibe bolinhas de navegação
@@ -31,7 +46,7 @@ function Equipe() {
       {/* Seção dos barbeiros */}
       <div className="barbers">
         <div className="barber">
-          <img className='barber-img' src={equipeImg} alt="Equipe da Barbearia" />
+          <img className='barber-img' src={images.equipe} alt="Equipe da Barbearia" />
         </div>
       </div>
 
@@ -40,21 +55,11 @@ function Equipe() {
 
       {/* Carrossel com fotos do local */}
       <Slider {...settings} className="carousel">
-        <div>
-          <img className='local-img' src={local1} alt="Local da Barbearia 1" />
-        </div>
-        <div>
-          <img className='local-img' src={local2} alt="Local da Barbearia 2" />
-        </div>
-        <div>
-          <img className='local-img' src={local3} alt="Local da Barbearia 3" />
-        </div>
-        <div>
-          <img className='local-img' src={local4} alt="Local da Barbearia 4" />
-        </div>
-        <div>
-          <img className='local-img' src={local5} alt="Local da Barbearia 5" />
-        </div>
+        {images.slides.map((src, idx) => (
+          <div key={idx}>
+            <img className='local-img' src={src} alt={`Local da Barbearia ${idx+1}`} />
+          </div>
+        ))}
         {/* Você pode adicionar mais imagens se necessário */}
       </Slider>
     </section>

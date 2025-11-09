@@ -5,17 +5,55 @@ Bem-vindo ao  BarbeariaMedeiros, um aplicativo web dedicado a fornecer uma exper
 
 ## Tecnologias Utilizadas
 
-- **React**: Biblioteca JavaScript para a construção de interfaces de usuário.
-- **CSS**: Para estilização do layout e componentes.
-- **React Router**: Para gerenciamento de rotas no aplicativo.
-- **Google Maps API**: Para a visualização da localização da barbearia.
+
+## Painel Admin de Imagens (local)
+
+Existe um servidor simples em `server/index.js` para gerenciar imagens sem banco de dados.
+
+- As imagens são salvas em `public/uploads/jardin-eldorado` e `public/uploads/pagani`.
+- Metadata (descrição) é salva em `meta.json` junto às imagens.
+
+Para rodar localmente:
+
+1. Instale dependências do frontend (se ainda não):
+
+```
+npm install
+```
+
+2. Instale dependências do servidor (uma vez):
+
+```
+npm install express multer cors concurrently --save-dev
+```
+
+3. Rode o servidor de imagens e o app React (duas janelas ou `npm run start:all`):
+
+```
+npm run start:server
+npm start
+```
+
+Abra `http://localhost:3000` para o app e `http://localhost:4000` é a API.
+
+## Deploy no Hostinger (resumo)
+
+Opções comuns para hospedar frontend + backend no Hostinger:
+
+- Hostinger com suporte a Node.js (Plano VPS ou Cloud com Node): você pode subir o servidor Express (`server/index.js`) e o build do React juntos. Passos gerais:
+   1. Gere o build do React: `npm run build` — isso criará a pasta `build`.
+   2. No servidor Hostinger com Node, faça um deploy do código (incluindo `server/index.js` e `build/`). Ajuste o servidor para servir os arquivos estáticos do React: `app.use(express.static(path.join(__dirname,'build')))` e rote para `build/index.html` para rotas não-API.
+   3. Inicie o servidor Node (por exemplo usando PM2) apontando para `server/index.js`.
+
+- Hostinger sem Node (hospedagem compartilhada estática): coloque apenas o build do React em `public_html` e hospede a API em outro serviço (Heroku, Railway, Vercel Serverless, DigitalOcean App, ou um VPS). Nesse caso altere o AdminPanel para apontar para a URL da API remota.
+
+Notas importantes:
+- Backup: quando um administrador excluir uma imagem, ela será permanentemente removida da pasta. Considere backups regulares.
+- Segurança: proteja o painel admin com autenticação antes de colocar em produção.
+- Caminhos: em produção use URLs relativos/configuráveis em vez de hardcoded `http://localhost:4000`.
 
 ## Funcionalidades
 
-- **Página Inicial**: Apresenta uma visão geral dos serviços oferecidos.
-- **Equipe**: Conheça os barbeiros que oferecem serviços personalizados.
-- **Localização**: Um mapa interativo mostrando onde a barbearia está localizada.
-- **Contato**: Formulário para agendamentos e dúvidas.
 
 ## Instalação
 

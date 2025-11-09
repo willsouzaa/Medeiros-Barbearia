@@ -1,0 +1,38 @@
+.admin-panel{padding:20px;background:#fff;border-radius:6px}
+.admin-panel h2{margin-top:0}
+.locations{margin-bottom:12px}
+.locations button{margin-right:8px;padding:6px 10px}
+.locations button.active{background:#222;color:#fff}
+.upload-form{display:flex;gap:8px;align-items:center;margin-bottom:16px}
+.upload-form input[type='file']{padding:6px}
+.upload-form input[type='text']{flex:1;padding:6px}
+.images-grid{display:flex;flex-wrap:wrap;gap:12px}
+.image-card{width:160px;border:1px solid #eee;padding:8px;border-radius:6px;text-align:center}
+.image-card img{width:100%;height:90px;object-fit:cover;border-radius:4px}
+.image-card .desc{font-size:12px;color:#444;margin:6px 0}
+.image-card .actions button{background:#c0392b;color:#fff;border:none;padding:6px 8px;border-radius:4px}
+.filter-row{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.meta{font-size:12px;color:#666;margin:6px 0}
+.edit-panel{position:fixed;right:20px;bottom:20px;background:#fff;padding:12px;border:1px solid #ddd;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.1)}
+.edit-panel input[type='text'],.edit-panel select,.edit-panel input[type='number']{display:block;margin:6px 0;padding:6px;width:180px}
+.edit-panel button{margin-right:6px}
+.tabs{margin-bottom:12px}
+.tabs button{margin-right:8px;padding:6px 10px}
+.tabs button.active{background:#222;color:#fff}
+.static-grid{display:flex;flex-wrap:wrap;gap:12px}
+.static-card{width:340px;border:1px solid #eee;padding:8px;border-radius:6px;display:flex;gap:8px}
+.static-card .thumb{flex:0 0 160px}
+.static-card .info{flex:1}
+.static-card input[type='text']{width:100%;padding:6px;margin:6px 0}
+.static-card select{padding:6px;margin-right:8px}
+.admin-auth{margin:10px 0;display:flex;gap:8px;align-items:center}
+.admin-auth .auth-badge{padding:6px 10px;border-radius:20px;font-weight:600}
+.admin-auth .auth-badge.ok{background:#2ecc71;color:#fff}
+.admin-auth .auth-badge.no{background:#e74c3c;color:#fff}
+.static-group{margin-bottom:18px}
+.static-group h4{margin:8px 0 10px}
+.static-card .info input[type='text']{margin-bottom:6px}
+.static-card button{margin-right:6px;padding:6px 8px;border-radius:6px;border:none;background:#1976d2;color:#fff}
+.static-card button[disabled]{opacity:0.5;background:#999}
+.backups-panel{margin-top:12px}
+.backup-item{border:1px solid #eee;padding:8px;border-radius:6px;margin-bottom:8px}
