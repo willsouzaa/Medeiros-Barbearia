@@ -13,7 +13,6 @@ import local4Static from './espaço44.jpeg';
 import local5Static from './espaço55.jpeg';
 import local6Static from './espaço66.jpg';
 
-
 function Equipe() {
   const [images, setImages] = useState({ equipe: equipeImgStatic, slides: [local1Static, local2Static, local3Static, local4Static, local5Static, local6Static] });
 
