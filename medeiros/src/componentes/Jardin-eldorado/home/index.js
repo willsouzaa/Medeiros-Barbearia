@@ -40,19 +40,17 @@ function Home() {
                 <div className="avaliacoes-grid">
                 <div className="avaliacao">
                     <span className="estrela">★★★★★</span>
-                    <p>"Lugar bem especial realmente. Desde o atendimento a qualidade de serviço nota 10.
-Não troco de jeito nenhum"</p>
+                    <p>"Lugar bem especial realmente. Desde o atendimento a qualidade de serviço nota 10. Não troco de jeito nenhum"</p>
                     <strong>— Adriano M.</strong>
                 </div>
                 <div className="avaliacao">
                     <span className="estrela">★★★★★</span>
-                    <p>"Eu super recomendo o trabalho desses profissionais,região do Eldorado trabalho profissional atendimento de qualidade.
-Ambiente super sofisticado e elegante super aconchegante."</p>
+                    <p>"Eu super recomendo o trabalho desses profissionais, região do Eldorado trabalho profissional atendimento de qualidade. Ambiente super sofisticado e elegante super aconchegante."</p>
                     <strong>— Simone P.</strong>
                 </div>
                 <div className="avaliacao">
                     <span className="estrela">★★★★★</span>
-                    <p>"Atendimento excelente, organização o ambiente tudo mt bom,o trabalho é mt top recomendo demais!!!"</p>
+                    <p>"Atendimento excelente, organização o ambiente tudo mt bom, o trabalho é mt top recomendo demais!!!"</p>
                     <strong>— Tiago P.</strong>
                 </div>
                 </div>

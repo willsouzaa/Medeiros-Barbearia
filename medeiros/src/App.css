@@ -433,41 +433,48 @@ h1, h2, h3 {
       height: 450px; /* Altura padrão para telas maiores */
   }
 }
-.botaoMapa-containe{
-  position: fixed; /* Permite que o botão fique fixo na tela */
-  right: 20px; /* Distância da borda direita */
-  bottom: 20px; /* Distância da borda inferior */
-  z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+.botaoMapa-container{
+  position: absolute; /* posicionado dentro de #localizacao (que já é relative) */
+  bottom: 16px; /* colocado na parte inferior */
+  left: 50%; /* centraliza horizontalmente */
+  transform: translateX(-50%);
+  z-index: 6; /* acima do iframe (iframe tem z-index:1) */
 }
 
 .irParaRotas-button{
-  display: flex; /* Flexbox para centralizar o texto */
+  display: inline-flex; /* Flexbox para centralizar o texto */
   justify-content: center;
   align-items: center;
-  background-color: rgba(234,198,87,245);
-  color: rgb(0, 0, 0);
-  padding: 10px 20px;
-  border-radius: 50px; /* Botão arredondado */
+  background: linear-gradient(135deg, var(--brand-gold-500), var(--brand-gold-400));
+  color: #090909;
+  padding: 8px 14px;
+  border-radius: 999px; /* Botão arredondado tipo pill */
   text-decoration: none;
   font-size: 16px;
-  margin-left: 40%;
-  margin-right: 40%;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
 }
 
 .irParaRotas-button:hover{
-  background-color: #d49203;
+  filter: brightness(0.95);
+  transform: translateY(-2px);
 }
 
 @media(max-width: 1067px){ /*Diminui o tamanho da font em telas menores*/
   .irParaRotas-button{
-    font-size: 12px;
+    font-size: 14px;
+    padding: 7px 12px;
   }
 }
 
-@media(max-width: 768px){ /*Diminui a porcentagem do botao sobre a tela*/
+@media(max-width: 480px){ /* Ajustes para telas pequenas: mover botão um pouco para esquerda */
+  .botaoMapa-container{
+    right: 12px;
+    top: 12px;
+  }
   .irParaRotas-button{
-    margin-left: 30%;
-    margin-right: 30%;
+    font-size: 13px;
+    padding: 6px 10px;
   }
 }
 

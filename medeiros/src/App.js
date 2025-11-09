@@ -154,18 +154,17 @@ function App() {
             allowFullScreen
             loading="lazy"
           ></iframe>
+          <div className="botaoMapa-container">
+            <a
+              href={rota}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="irParaRotas-button"
+            >
+              Abrir no Google Maps
+            </a>
+          </div>
         </section>
-
-        <div className="botaoMapa-container">
-          <a
-            href={rota}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="irParaRotas-button"
-          >
-            Abrir no Google Maps
-          </a>
-        </div>
 
         <section id="contatos">
           <Contatos />

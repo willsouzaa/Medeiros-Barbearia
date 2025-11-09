@@ -55,8 +55,8 @@ function Equipe() {
           </div>
         </div>
 
+          <h3 className="carousel-title section-heading">Fotos da Barbearia</h3>
         <div className="carousel-frame">
-          <h3 className="carousel-title">Fotos da Barbearia</h3>
           <Slider {...settings} className="carousel">
             {images.slides.map((src, idx) => (
               <div key={idx}>
