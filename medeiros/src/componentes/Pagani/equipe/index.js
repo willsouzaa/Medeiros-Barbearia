@@ -13,6 +13,7 @@ import local4Static from './espaço44.jpeg';
 import local5Static from './espaço55.jpeg';
 import local6Static from './espaço66.jpg';
 
+
 function Equipe() {
   const [images, setImages] = useState({ equipe: equipeImgStatic, slides: [local1Static, local2Static, local3Static, local4Static, local5Static, local6Static] });
 
@@ -40,25 +41,31 @@ function Equipe() {
 
   return (
     <section className="equipe">
-      {/* Seção dos barbeiros */}
-      <div className="barbers">
-        <div className="barber">
-          <img className='barber-img' src={images.equipe} alt="Equipe da Barbearia" />
+      <div className="equipe-shell">
+        <div className="equipe-header">
+          <span className="section-badge">Unidade Pagani</span>
+          <h2 className="section-heading">Referência em estilo, atitude e hospitalidade</h2>
+          <p className="section-subtitle">Uma barbearia sofisticada, pensada para quem encara o visual como cartão de visita.</p>
+        </div>
+
+        <div className="barbers">
+          <div className="barber">
+            <img className='barber-img' src={images.equipe} alt="Equipe da Barbearia" />
+            <p className="barber-copy">Equipe especializada em cortes urbanos, acabamentos impecáveis e experiências personalizadas.</p>
+          </div>
+        </div>
+
+        <div className="carousel-frame">
+          <h3 className="carousel-title">Fotos da Barbearia</h3>
+          <Slider {...settings} className="carousel">
+            {images.slides.map((src, idx) => (
+              <div key={idx}>
+                <img className='local-img' src={src} alt={`Local da Barbearia ${idx+1}`} />
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
-
-      {/* Título da seção de fotos da barbearia */}
-      <h2>Fotos da Barbearia</h2>
-
-      {/* Carrossel com fotos do local */}
-      <Slider {...settings} className="carousel">
-        {images.slides.map((src, idx) => (
-          <div key={idx}>
-            <img className='local-img' src={src} alt={`Local da Barbearia ${idx+1}`} />
-          </div>
-        ))}
-        {/* Você pode adicionar mais imagens se necessário */}
-      </Slider>
     </section>
   );
 }

@@ -1,9 +1,66 @@
 /* Estilos gerais */
+:root {
+  --brand-bg-900: #070708;
+  --brand-bg-800: #0f1013;
+  --brand-bg-700: #16171b;
+  --brand-bg-overlay: rgba(15, 16, 19, 0.8);
+  --brand-gold-500: #eac657;
+  --brand-gold-400: #d5ad3f;
+  --brand-gold-200: rgba(234, 198, 87, 0.6);
+  --brand-text-on-dark: #f5f5f7;
+  --brand-text-muted: rgba(245, 245, 247, 0.7);
+  --brand-border: rgba(255, 255, 255, 0.08);
+  --brand-radius-lg: 22px;
+  --brand-radius-md: 16px;
+  --brand-radius-sm: 10px;
+  --brand-max-width: min(1120px, 92vw);
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  background: rgb(27, 27, 27);
+  background: radial-gradient(circle at top, #12131a, var(--brand-bg-900) 65%);
+  color: var(--brand-text-on-dark);
+  line-height: 1.6;
+  color-scheme: dark;
+}
+
+.section-shell {
+  width: var(--brand-max-width);
+  margin: 0 auto;
+  padding-inline: clamp(18px, 4vw, 32px);
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(234,198,87,0.18), rgba(234,198,87,0.05));
+  border: 1px solid var(--brand-border);
+  color: var(--brand-gold-500);
+  backdrop-filter: blur(12px);
+}
+
+.section-heading {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin: 0;
+  color: var(--brand-text-on-dark);
+  letter-spacing: 0.6px;
+}
+
+.section-subtitle {
+  margin: 0;
+  font-size: clamp(1rem, 2.3vw, 1.2rem);
+  color: var(--brand-text-muted);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 header {

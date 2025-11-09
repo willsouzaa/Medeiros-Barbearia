@@ -18,40 +18,20 @@ import local0Static from './espaco1010.jpg';
 
 
 function Equipe() {
-  const [images, setImages] = useState({ equipe: equipeImgStatic, slides: [local1Static, local2Static, local3Static, local4Static, local5Static] });
+  const [images, setImages] = useState({ equipe: equipeImgStatic, slides: [local1Static, local2Static, local3Static, local4Static, local5Static, local7Static, local8Static, local9Static, local0Static] });
 
   useEffect(() => {
     // try load from API first
-    const apiBase = 'http://localhost:4000';
-
-    // main image (equipe)
-    fetch(`${apiBase}/api/images/jardin-eldorado?page=equipe&slot=main`)
+    fetch('http://localhost:4000/api/images/jardin-eldorado?page=equipe&slot=main')
       .then(r => r.json())
       .then(data => {
         if (data && data.length) {
-          setImages(prev => ({ ...prev, equipe: `${apiBase}${data[0].url}`, slides: prev.slides }));
-        } else {
-          // fallback: try get any image for the location
-          fetch(`${apiBase}/api/images/jardin-eldorado`).then(r=>r.json()).then(all=>{
-            if(all && all.length) setImages(prev=>({ ...prev, equipe: `${apiBase}${all[0].url}`, slides: prev.slides }));
-          }).catch(()=>{});
-        }
-      }).catch(()=>{
-        // ignore
-      });
-
-    // slides
-    fetch(`${apiBase}/api/images/jardin-eldorado?page=equipe&slot=slide`)
-      .then(r=>r.json())
-      .then(data=>{
-        if(data && data.length) setImages(prev=>({ ...prev, slides: data.map(d=>`${apiBase}${d.url}`) }));
-        else {
-          // fallback: fetch all images for location and use them as slides
-          fetch(`${apiBase}/api/images/jardin-eldorado`).then(r=>r.json()).then(all=>{
-            if(all && all.length) setImages(prev=>({ ...prev, slides: all.map(d=>`${apiBase}${d.url}`) }));
-          }).catch(()=>{});
+          setImages(prev => ({ ...prev, equipe: `http://localhost:4000${data[0].url}`, slides: prev.slides }));
         }
       }).catch(()=>{});
+
+    fetch('http://localhost:4000/api/images/jardin-eldorado?page=equipe&slot=slide')
+      .then(r=>r.json()).then(data=>{ if(data && data.length) setImages(prev=>({ ...prev, slides: data.map(d=>`http://localhost:4000${d.url}`) })); }).catch(()=>{});
   }, []);
   // Configurações do carrossel (slick)
   const settings = {
@@ -68,25 +48,31 @@ function Equipe() {
 
   return (
     <section className="equipe">
-      {/* Seção dos barbeiros */}
-      <div className="barbers">
-        <div className="barber">
-          <img className='barber-img' src={images.equipe} alt="Equipe da Barbearia" />
+      <div className="equipe-shell">
+        <div className="equipe-header">
+          <span className="section-badge">Unidade Jardim Eldorado</span>
+          <h2 className="section-heading">Nossa equipe e o ambiente que te recebe</h2>
+          <p className="section-subtitle">Cuidado artesanal, atmosfera acolhedora e a energia certa para valorizar cada detalhe do seu estilo.</p>
+        </div>
+
+        <div className="barbers">
+          <div className="barber">
+            <img className='barber-img' src={images.equipe} alt="Equipe da Barbearia" />
+            <p className="barber-copy">Profissionais premiados que combinam técnica e personalidade em cada atendimento.</p>
+          </div>
+        </div>
+
+        <div className="carousel-frame">
+          <h3 className="carousel-title">Fotos da Barbearia</h3>
+          <Slider {...settings} className="carousel">
+            {images.slides.map((src, idx) => (
+              <div key={idx}>
+                <img className='local-img' src={src} alt={`Local da Barbearia ${idx+1}`} />
+              </div>
+            ))}
+          </Slider>
         </div>
       </div>
-
-      {/* Título da seção de fotos da barbearia */}
-      <h2>Fotos da Barbearia</h2>
-
-      {/* Carrossel com fotos do local */}
-      <Slider {...settings} className="carousel">
-        {images.slides.map((src, idx) => (
-          <div key={idx}>
-            <img className='local-img' src={src} alt={`Local da Barbearia ${idx+1}`} />
-          </div>
-        ))}
-        {/* Você pode adicionar mais imagens se necessário */}
-      </Slider>
     </section>
   );
 }

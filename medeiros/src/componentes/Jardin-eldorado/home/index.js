@@ -30,8 +30,14 @@ function Home() {
 
     return (
         <section className="avaliacoes" ref={sectionRef}>
-            <h2>O que dizem sobre a Barbearia Medeiros</h2>
-            <div className="avaliacoes-grid">
+            <div className="section-shell">
+                <div className="avaliacoes-header">
+                    <span className="section-badge">Unidade Jardim Eldorado</span>
+                    <h2 className="section-heading">Tradição em cortes que impressionam</h2>
+                    <p className="section-subtitle">Uma experiência premium com atendimento que valoriza cada detalhe do seu visual.</p>
+                </div>
+
+                <div className="avaliacoes-grid">
                 <div className="avaliacao">
                     <span className="estrela">★★★★★</span>
                     <p>"Lugar bem especial realmente. Desde o atendimento a qualidade de serviço nota 10.
@@ -49,28 +55,29 @@ Ambiente super sofisticado e elegante super aconchegante."</p>
                     <p>"Atendimento excelente, organização o ambiente tudo mt bom,o trabalho é mt top recomendo demais!!!"</p>
                     <strong>— Tiago P.</strong>
                 </div>
-            </div>
+                </div>
 
-            {/* Botão de Agendamento com Animação */}
-            <div className="botao-agendamento-container">
-                {isVisible && (
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={controls}
-                        transition={{ duration: 0.8 }}
-                        className="mensagem-download"
+                {/* Botão de Agendamento com Animação */}
+                <div className="botao-agendamento-container">
+                    {isVisible && (
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={controls}
+                            transition={{ duration: 0.8 }}
+                            className="mensagem-download"
+                        >
+                            📲 Baixe o app de agendamento
+                        </motion.div>
+                    )}
+                    <a
+                        href="https://sites.appbarber.com.br/barbershopmedeiros"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="botao-agendamento"
                     >
-                        📲 Baixe o app de agendamento
-                    </motion.div>
-                )}
-                <a
-                    href="https://sites.appbarber.com.br/barbershopmedeiros"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="botao-agendamento"
-                >
-                    Agendar Horário
-                </a>
+                        Agendar Horário
+                    </a>
+                </div>
             </div>
         </section>
     );
