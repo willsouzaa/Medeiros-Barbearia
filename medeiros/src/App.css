@@ -91,18 +91,17 @@ header .logo {
   top: 18px;
   left: 20px;
   color: #f4f4f4;
-  background: rgba(0,0,0,0.45);
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 0;
   z-index: 1000; /* menor z-index para não cobrir o menu */
   text-align: left;
   font-size: 14px;
-  pointer-events: none; /* permite cliques passarem para o menu abaixo */
+  pointer-events: auto;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
 .header-hours strong{
   display: block;
   color: rgba(234,198,87,1);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 .header-hours .hours-lines span{
   display: block;
@@ -121,6 +120,7 @@ header .logo {
   font-weight: 700;
   color: rgba(234,198,87,1);
   display: block;
+  text-transform: uppercase;
 }
 .header-hours .time{
   display: block;
@@ -131,11 +131,9 @@ header .logo {
 
 @media (max-width: 768px) {
   .header-hours {
-    left: 12px;
-    right: 12px;
-    top: 12px;
+    left: 16px;
+    top: 14px;
     font-size: 12px;
-    padding: 6px 8px;
     max-height: 120px;
   }
 }

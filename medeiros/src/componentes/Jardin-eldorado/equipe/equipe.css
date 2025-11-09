@@ -85,7 +85,8 @@
 }
 
 .barber-img {
-    width: min(100%, 420px);
+    width: min(100%, 520px);
+    max-height: clamp(260px, 60vh, 520px);
     margin: 0 auto;
     border-radius: var(--brand-radius-md);
     display: block;
@@ -150,8 +151,8 @@
 }
 
 .carousel .local-img {
-    width: min(90vw, var(--carousel-max-width));
-    max-height: calc(var(--carousel-height) - (var(--carousel-padding) * 2));
+    width: min(100%, 520px);
+    max-height: clamp(260px, 60vh, 520px);
     height: auto;
     object-fit: contain;
     object-position: center;
