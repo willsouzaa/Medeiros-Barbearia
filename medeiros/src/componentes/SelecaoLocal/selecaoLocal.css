@@ -1,4 +1,3 @@
-/* Aplicação global para evitar overflow */
 * {
   box-sizing: border-box;
 }
@@ -9,100 +8,106 @@ body {
   overflow-x: hidden;
 }
 
-/* Container principal */
 .selecao-local {
-  height: 100vh;
-  width: 100vw;
-  background: url('../../componentes/Jardin-eldorado/imagens/fundo-header.jpeg') no-repeat center center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow: hidden;
-  padding: 0 10px;
-}
-
-/* Sobreposição escurecida */
-.selecao-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
-  backdrop-filter: brightness(0.6);
+  background: radial-gradient(circle at top, #1a1a1a 0%, #050505 65%, #000000 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 48px 18px;
+  gap: 32px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f5f5f5;
 }
 
-/* Grade responsiva */
-.selecao-grid {
+.hero {
+  text-align: center;
+  max-width: 500px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.hero-logo {
+  width: 140px;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  color: #eac657;
+  margin-bottom: 6px;
+  letter-spacing: 0.8px;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #c5c5c5;
+  margin: 0;
+}
+
+.options-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
-  padding: 10px;
-  max-width: 100%;
-}
-
-/* Bloco de cada local */
-.local-box {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
+  gap: 20px;
   width: 100%;
-  max-width: 240px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-  animation: fadeIn 0.8s ease-in-out;
+  max-width: 700px;
 }
 
-/* Logo menor */
-.logo {
-  width: 120px;
-  margin-bottom: 5px;
+.option-card {
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(234, 198, 87, 0.35);
+  border-radius: 16px;
+  padding: 22px 20px;
+  width: 100%;
+  max-width: 290px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.42);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Título e subtítulo menores */
-.titulo {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+.option-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.55);
+}
+
+.option-title {
+  font-size: 1.25rem;
+  margin: 0;
   color: #eac657;
 }
 
-.subtitulo {
+.option-address {
   font-size: 0.9rem;
-  margin-bottom: 20px;
-  color: #f0f0f0;
+  color: #d9d9d9;
+  margin: 0;
+  line-height: 1.45;
 }
 
-/* Botão menor e central */
 .botao {
   background-color: #eac657;
-  color: #000;
-  padding: 10px 20px;
-  font-size: 0.95rem;
-  font-weight: bold;
+  color: #131313;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  max-width: 200px;
-  margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .botao:hover {
   background-color: #f9d94c;
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -110,28 +115,65 @@ body {
   }
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
-  .selecao-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+  .selecao-local {
+    padding: 36px 14px;
+    gap: 28px;
   }
 
-  .local-box {
-    max-width: 85vw;
-    padding: 16px;
+  .hero-logo {
+    width: 120px;
   }
 
-  .titulo {
-    font-size: 1.1rem;
+  .hero-title {
+    font-size: 2rem;
   }
 
-  .subtitulo {
-    font-size: 0.85rem;
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .options-grid {
+    gap: 16px;
+  }
+
+  .option-card {
+    max-width: 100%;
+    padding: 20px 18px;
+  }
+
+  .option-title {
+    font-size: 1.2rem;
+  }
+
+  .option-address {
+    font-size: 0.88rem;
   }
 
   .botao {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo {
+    width: 100px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .options-grid {
+    flex-direction: column;
+  }
+
+  .option-card {
+    gap: 10px;
   }
 }
