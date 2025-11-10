@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import SelecaoLocal from './componentes/SelecaoLocal/SelecaoLocal';
@@ -13,23 +13,141 @@ import ContatoEldorado from './componentes/Jardin-eldorado/contatos';
 import ContatoPagani from './componentes/Pagani/contatos';
 import Logo from './componentes/Jardin-eldorado/imagens/logo.png';
 
+const SLUG_MAP = Object.freeze({
+  eldorado: '/barbearia/barbearia-jardim-eldorado',
+  pagani: '/barbearia/barbearia-pagani-corte',
+});
+
+const SEO_CONFIG = {
+  default: {
+    title: 'Barbearia Medeiros | Barbearia em Palhoça',
+    description:
+      'Barbearia Medeiros oferece cortes masculinos premium em Palhoça, com equipe especializada e atendimento personalizado nas unidades Jardim Eldorado e Pagani.',
+    keywords:
+      'barbearia palhoça, barbearia medeiros, corte de cabelo masculino, barbeiro palhoça, corte de barba, barba e cabelo, jardim eldorado, pagani',
+  },
+  eldorado: {
+    title: 'Barbearia Medeiros | Unidade Jardim Eldorado',
+    description:
+      'Conheça a unidade Jardim Eldorado da Barbearia Medeiros em Palhoça. Agende seu corte, barba ou cuidados especiais com uma equipe dedicada.',
+    keywords:
+      'barbearia jardim eldorado, barbearia medeiros palhoça, corte masculino jardim eldorado, barbeiro jardim eldorado, barba e cabelo palhoça',
+  },
+  pagani: {
+    title: 'Barbearia Medeiros | Unidade Pagani',
+    description:
+      'Agende seu horário na Barbearia Medeiros Pagani em Palhoça. Profissionais experientes para cortes masculinos, barba e tratamentos especiais.',
+    keywords:
+      'barbearia pagani, barbearia medeiros pagani, corte masculino pagani, barbeiro pagani palhoça, barba e cabelo pagani',
+  },
+};
+
+const normalizePath = (path) => {
+  if (!path) return '/';
+  const trimmed = path.replace(/\/+$/, '');
+  return trimmed === '' ? '/' : trimmed.toLowerCase();
+};
+
+const getLocalFromPath = () => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+  const path = normalizePath(window.location.pathname);
+  if (path === '/admin') {
+    return null;
+  }
+  const match = Object.entries(SLUG_MAP).find(([, slug]) => normalizePath(slug) === path);
+  return match ? match[0] : null;
+};
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [local, setLocal] = useState(null);
+  const [local, setLocal] = useState(() => getLocalFromPath());
   const whatsappNumber = "5548996748923";
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const handleSelecionar = (id) => {
+    const slug = SLUG_MAP[id] || '/';
+    if (typeof window !== 'undefined') {
+      const currentPath = normalizePath(window.location.pathname);
+      const targetPath = normalizePath(slug);
+      if (currentPath !== targetPath) {
+        window.history.pushState({}, '', slug);
+      }
+    }
+    setLocal(id);
+  };
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const onPopState = () => {
+      setLocal(getLocalFromPath());
+    };
+
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    const { title, description, keywords } = SEO_CONFIG[local] || SEO_CONFIG.default;
+    document.title = title;
+
+    const setMetaContent = (selector, attr, value) => {
+      const element = document.querySelector(selector);
+      if (element) {
+        element.setAttribute(attr, value);
+      }
+    };
+
+    setMetaContent('meta[name="description"]', 'content', description);
+    if (keywords) {
+      setMetaContent('meta[name="keywords"]', 'content', keywords);
+    }
+    setMetaContent('meta[property="og:title"]', 'content', title);
+    setMetaContent('meta[property="og:description"]', 'content', description);
+    setMetaContent('meta[name="twitter:title"]', 'content', title);
+    setMetaContent('meta[name="twitter:description"]', 'content', description);
+
+    const slug = local ? SLUG_MAP[local] : '/';
+    const normalizedSlug = slug === '/' ? '' : slug;
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical && canonical.dataset && canonical.dataset.baseUrl) {
+      canonical.setAttribute('href', `${canonical.dataset.baseUrl.replace(/\/$/, '')}${normalizedSlug}`);
+    }
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl && ogUrl.dataset && ogUrl.dataset.baseUrl) {
+      ogUrl.setAttribute('content', `${ogUrl.dataset.baseUrl.replace(/\/$/, '')}${normalizedSlug}`);
+    }
+
+    const twitterUrl = document.querySelector('meta[name="twitter:url"]');
+    if (twitterUrl && twitterUrl.dataset && twitterUrl.dataset.baseUrl) {
+      twitterUrl.setAttribute('content', `${twitterUrl.dataset.baseUrl.replace(/\/$/, '')}${normalizedSlug}`);
+    }
+  }, [local]);
+
   if (!local) {
     // Allow accessing the admin panel at /admin (permanent route) or via ?admin=1
-    const pathname = window.location.pathname || '/';
-    const params = new URLSearchParams(window.location.search);
+    const pathname = typeof window !== 'undefined' ? window.location.pathname || '/' : '/';
+    const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams();
     if (pathname === '/admin' || params.get('admin') === '1') {
       return <AdminPanel />;
     }
-    return <SelecaoLocal onSelecionar={setLocal} />;
+    if (typeof window !== 'undefined' && normalizePath(pathname) !== '/') {
+      window.history.replaceState({}, '', '/');
+    }
+    return <SelecaoLocal onSelecionar={handleSelecionar} />;
   }
 
   const localConfig = {
@@ -128,7 +246,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="agendamentoOnline-button"
-              onClick={() => setMenuOpen(false)}
+                onClick={() => setMenuOpen(false)}
             >
               Agendamento online
             </a>

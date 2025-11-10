@@ -1,3 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt para Barbearia Medeiros
 User-agent: *
-Disallow:
+Disallow: /admin
+Allow: /
+
+Sitemap: https://www.barbeariamedeiros.com.br/sitemap.xml

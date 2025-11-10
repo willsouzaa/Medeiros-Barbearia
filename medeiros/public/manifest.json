@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Barbearia",
+  "name": "Barbearia Medeiros",
+  "description": "Barbearia Medeiros em Palhoça, cortes masculinos premium nas unidades Jardim Eldorado e Pagani.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +19,10 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait",
+  "theme_color": "#0b0b0b",
+  "background_color": "#000000"
 }
